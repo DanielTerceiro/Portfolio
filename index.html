@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Terceiro | UI/UX Designer | Front-End Developer</title>
+    <meta name="description" content="Portfolio of Daniel Terceiro - UI/UX Designer, Graphic Designer and Front-End Developer based in Dublin, Ireland">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Daniel Terceiro</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-text">Daniel Terceiro</h1>
+                <div class="typewriter">
+                    <span id="typewriter-text"></span>
+                </div>
+                <p class="hero-description">Creating engaging digital experiences through thoughtful design and development.</p>
+                <div class="hero-cta">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-container">
+                        <img src="images/profile.jpg" alt="Daniel Terceiro">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>UI / UX Designer - Graphic Designer - Front End Dev</h3>
+                    <p>I am Daniel Terceiro, a seasoned Creative Designer and UX/UI Specialist with over 10 years of dedicated experience. My journey began with a Bachelor's degree in Design and Applied Arts, followed by a Professional Diploma in UX Design from the UX Design Institute.</p>
+                    <p>My primary focus is on UX/UI design, where I have made impactful contributions to high-profile projects. From crafting compelling marketing materials for web, print, and in-game experiences to collaborating closely with Art Directors on concept cover art.</p>
+                    <p>I have a passion for creating user interfaces that are customer-focused, intuitive and aesthetic. I enjoy tackling complex problems, designing engaging experiences, and growing the business by delivering what customers want.</p>
+                    
+                    <div class="skills">
+                        <div class="skill-category">
+                            <h4>Design</h4>
+                            <ul>
+                                <li>UI/UX Design</li>
+                                <li>Graphic Design</li>
+                                <li>Illustration</li>
+                                <li>Branding</li>
+                                <li>Wireframing</li>
+                                <li>Prototyping</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Development</h4>
+                            <ul>
+                                <li>HTML5</li>
+                                <li>CSS3</li>
+                                <li>JavaScript</li>
+                                <li>Responsive Design</li>
+                                <li>Animation</li>
+                                <li>Version Control</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools</h4>
+                            <ul>
+                                <li>Adobe XD</li>
+                                <li>Figma</li>
+                                <li>Adobe Photoshop</li>
+                                <li>Adobe Illustrator</li>
+                                <li>Unreal Engine</li>
+                                <li>StoryTeq</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Portfolio</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ux-ui">UX/UI Design</button>
+                <button class="filter-btn" data-filter="illustration">Illustration</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+            </div>
+            <div class="portfolio-grid">
+                <!-- UX/UI Projects -->
+                <div class="portfolio-item ux-ui">
+                    <div class="portfolio-image">
+                        <img src="images/projects/aero365.jpg" alt="Aero 365 - UX Case Study">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Aero 365</h3>
+                                <p>UX Case Study - Airline</p>
+                                <a href="projects/aero365.html" class="btn btn-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item ux-ui">
+                    <div class="portfolio-image">
+                        <img src="images/projects/masotti.jpg" alt="Masotti Furniture Website">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Masotti Furniture</h3>
+                                <p>UX/UI Design Website</p>
+                                <a href="projects/masotti.html" class="btn btn-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Illustration Projects -->
+                <div class="portfolio-item illustration">
+                    <div class="portfolio-image">
+                        <img src="images/projects/secret-garden.jpg" alt="The Secret Garden">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>The Secret Garden</h3>
+                                <p>Book Cover Illustration</p>
+                                <a href="projects/secret-garden.html" class="btn btn-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item illustration">
+                    <div class="portfolio-image">
+                        <img src="images/projects/tmnt.jpg" alt="TMNT Artwork Concept">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>TMNT</h3>
+                                <p>Artwork Concept</p>
+                                <a href="projects/tmnt.html" class="btn btn-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Branding Projects -->
+                <div class="portfolio-item branding">
+                    <div class="portfolio-image">
+                        <img src="images/projects/vegas.jpg" alt="Las Vegas Artwork">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Las Vegas</h3>
+                                <p>Branding Artwork</p>
+                                <a href="projects/vegas.html" class="btn btn-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item branding illustration">
+                    <div class="portfolio-image">
+                        <img src="images/projects/explorers.jpg" alt="Explorers of the Sea">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>Explorers of the Sea</h3>
+                                <p>Book Cover Design</p>
+                                <a href="projects/explorers.html" class="btn btn-view">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dublin, Ireland</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@danielterceiro.com</span>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://www.behance.net/danielterceiro" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/danielterceiro" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Daniel Terceiro. All Rights Reserved.</p>
+                <div class="back-to-top">
+                    <a href="#home">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
