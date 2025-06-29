@@ -1,0 +1,67 @@
+/* Updated Header/Navbar CSS */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: var(--transition-fast);
+    background-color: var(--primary-color); /* Always have a solid background */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Always have a shadow for depth */
+}
+
+.header.scrolled {
+    padding: 15px 0; /* Only the padding changes when scrolled */
+}
+
+/* Rest of the header styles remain the same */
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: var(--heading-font);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--light-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav ul li a {
+    color: var(--light-text);
+    font-family: var(--heading-font);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition-fast);
+}
+
+.main-nav ul li a:hover:after,
+.main-nav ul li a.active:after {
+    width: 100%;
+}
