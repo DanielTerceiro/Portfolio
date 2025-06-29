@@ -1,73 +1,21 @@
-/*
-* Daniel Terceiro Portfolio
-* Main JavaScript File
-*/
+// Main JavaScript for Daniel Terceiro's Portfolio
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize typewriter effect
-    initTypewriter();
-    
     // Initialize navigation
     initNavigation();
+    
+    // Initialize scroll animations
+    initScrollAnimations();
     
     // Initialize portfolio filtering
     initPortfolioFilter();
     
+    // Initialize focus items animation
+    initFocusItemsAnimation();
+    
     // Initialize contact form
     initContactForm();
-    
-    // Initialize scroll animations
-    initScrollAnimations();
 });
-
-// Typewriter effect for hero section
-function initTypewriter() {
-    const typewriterElement = document.getElementById('typewriter-text');
-    const phrases = [
-        'UI/UX Designer',
-        'Graphic Designer',
-        'Front-End Developer',
-        'Illustrator'
-    ];
-    
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 100;
-    
-    function type() {
-        const currentPhrase = phrases[phraseIndex];
-        
-        if (isDeleting) {
-            // Deleting text
-            typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 50;
-        } else {
-            // Typing text
-            typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 100;
-        }
-        
-        // If word is complete
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            // Pause at end of phrase
-            typingSpeed = 1500;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            // Move to next phrase
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 500;
-        }
-        
-        setTimeout(type, typingSpeed);
-    }
-    
-    // Start typing
-    setTimeout(type, 1000);
-}
 
 // Navigation functionality
 function initNavigation() {
@@ -76,7 +24,7 @@ function initNavigation() {
     const mainNav = document.querySelector('.main-nav');
     const navLinks = document.querySelectorAll('.main-nav a');
     
-    // Header scroll effect
+    // Handle scroll event for header styling
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -86,16 +34,16 @@ function initNavigation() {
     });
     
     // Mobile menu toggle
-    menuToggle.addEventListener('click', function() {
-        mainNav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+        });
+    }
     
     // Close mobile menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             mainNav.classList.remove('active');
-            menuToggle.classList.remove('active');
             
             // Update active link
             navLinks.forEach(navLink => navLink.classList.remove('active'));
@@ -103,22 +51,24 @@ function initNavigation() {
         });
     });
     
-    // Set active nav link based on scroll position
+    // Update active nav link based on scroll position
     window.addEventListener('scroll', function() {
-        const scrollPosition = window.scrollY;
+        let current = '';
+        const sections = document.querySelectorAll('section');
         
-        document.querySelectorAll('section').forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
             
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+            if (window.scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
             }
         });
     });
@@ -137,14 +87,14 @@ function initPortfolioFilter() {
             
             const filterValue = this.getAttribute('data-filter');
             
-            // Filter portfolio items
+            // Filter items
             portfolioItems.forEach(item => {
                 if (filterValue === 'all' || item.classList.contains(filterValue)) {
                     item.style.display = 'block';
                     setTimeout(() => {
                         item.style.opacity = '1';
                         item.style.transform = 'scale(1)';
-                    }, 10);
+                    }, 50);
                 } else {
                     item.style.opacity = '0';
                     item.style.transform = 'scale(0.8)';
@@ -157,7 +107,49 @@ function initPortfolioFilter() {
     });
 }
 
-// Contact form handling
+// Scroll animations
+function initScrollAnimations() {
+    // Add scroll event listener for animations
+    window.addEventListener('scroll', function() {
+        // Add more scroll-based animations here if needed
+    });
+}
+
+// Focus items animation
+function initFocusItemsAnimation() {
+    const focusItems = document.querySelectorAll('.focus-item');
+    
+    function checkIfInView() {
+        const windowHeight = window.innerHeight;
+        const windowTopPosition = window.scrollY;
+        const windowBottomPosition = windowTopPosition + windowHeight;
+        
+        focusItems.forEach((item, index) => {
+            const elementHeight = item.offsetHeight;
+            const elementTopPosition = item.offsetTop;
+            const elementBottomPosition = elementTopPosition + elementHeight;
+            
+            // Check if element is in viewport
+            if (
+                (elementBottomPosition >= windowTopPosition) &&
+                (elementTopPosition <= windowBottomPosition)
+            ) {
+                // Add delay based on index for staggered animation
+                setTimeout(() => {
+                    item.classList.add('animated');
+                }, index * 100);
+            }
+        });
+    }
+    
+    // Initial check
+    checkIfInView();
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkIfInView);
+}
+
+// Contact form
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     
@@ -171,68 +163,15 @@ function initContactForm() {
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            // Basic validation
-            if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
+            // Here you would typically send the form data to a server
+            // For now, we'll just log it and show a success message
+            console.log('Form submitted:', { name, email, subject, message });
             
-            // In a real implementation, you would send this data to a server
-            // For now, we'll just show a success message
+            // Show success message (in a real implementation, this would happen after successful AJAX)
             alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
             contactForm.reset();
         });
     }
 }
-
-// Scroll animations
-function initScrollAnimations() {
-    // Animate elements when they come into view
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    
-    function checkIfInView() {
-        const windowHeight = window.innerHeight;
-        const windowTopPosition = window.scrollY;
-        const windowBottomPosition = windowTopPosition + windowHeight;
-        
-        animateElements.forEach(element => {
-            const elementHeight = element.offsetHeight;
-            const elementTopPosition = element.offsetTop;
-            const elementBottomPosition = elementTopPosition + elementHeight;
-            
-            // Check if element is in viewport
-            if (
-                (elementBottomPosition >= windowTopPosition) &&
-                (elementTopPosition <= windowBottomPosition)
-            ) {
-                element.classList.add('animated');
-            }
-        });
-    }
-    
-    // Initial check
-    checkIfInView();
-    
-    // Check on scroll
-    window.addEventListener('scroll', checkIfInView);
-}
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
